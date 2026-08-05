@@ -69,7 +69,7 @@ export default function LetterMenu({
         {/* ENTERTAINMENT + RELAX, combined — pick as many as you like */}
         <Section title="Развлечения и отдых" icon="🎉">
           <p className="text-xs text-rose-400 dark:text-rose-300/70 mb-3">
-            Рисование уже забронировано и оплачено — а всё остальное можно
+            Рисование уже забронировано — а всё остальное можно
             выбрать в любом количестве, что захочется.
           </p>
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
@@ -138,12 +138,11 @@ export default function LetterMenu({
                               cinema: { optionId: opt.id, time: t },
                             })
                           }
-                          className={`rounded-full px-4 py-1.5 text-sm font-medium border transition-colors ${
-                            selection.cinema?.optionId === opt.id &&
+                          className={`rounded-full px-4 py-1.5 text-sm font-medium border transition-colors ${selection.cinema?.optionId === opt.id &&
                             selection.cinema?.time === t
-                              ? "bg-rose-500 text-white border-rose-500"
-                              : "bg-white text-rose-500 border-rose-300 hover:bg-rose-50 dark:bg-rose-950/60 dark:text-rose-200 dark:border-rose-800 dark:hover:bg-rose-900/50"
-                          }`}
+                            ? "bg-rose-500 text-white border-rose-500"
+                            : "bg-white text-rose-500 border-rose-300 hover:bg-rose-50 dark:bg-rose-950/60 dark:text-rose-200 dark:border-rose-800 dark:hover:bg-rose-900/50"
+                            }`}
                         >
                           {t}
                         </button>

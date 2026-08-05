@@ -1,18 +1,14 @@
 // ---- Personalize me ----
-export const HER_NAME = "любимая";
-export const SIGN_OFF = "твой котик";
+export const HER_NAME = "Окси";
+export const SIGN_OFF = "Ромаш";
 export const BIRTHDAY_WISH = `С днём рождения, ${HER_NAME}! 🎂
 
-Каждый год рядом с тобой — подарок сам по себе,
-а сегодня я хочу подарить тебе целый день,
-собранный только из того, что любишь ты.
+Время рядом с тобой — подарок сам по себе,
+Я хочу чтобы ты собрала свой праздничный пазл из того, что любишь ты.
 
 Пусть сегодня будет вкусно, весело и невероятно нежно.
 Выбери всё, что хочется — а обо всём остальном
 позабочусь я.
-
-Я безумно тебя люблю и благодарен судьбе
-за каждый прожитый рядом с тобой день.
 
 С днём рождения, моя единственная. 💖
 
@@ -26,10 +22,10 @@ export type Track = {
 };
 
 export const TRACKS: Track[] = [
-  { id: "track-1", title: "Трек 1", src: "/audio/track-1.mp3" },
-  { id: "track-2", title: "Трек 2", src: "/audio/track-2.mp3" },
-  { id: "track-3", title: "Трек 3", src: "/audio/track-3.mp3" },
-  { id: "track-4", title: "Трек 4", src: "/audio/track-4.mp3" },
+  { id: "track-1", title: "Ветер", src: "/audio/track-1.mp3" },
+  { id: "track-2", title: "Слёзы", src: "/audio/track-2.mp3" },
+  { id: "track-3", title: "Просто такая сильная любовь", src: "/audio/track-3.mp3" },
+  { id: "track-4", title: "Осень", src: "/audio/track-4.mp3" },
 ];
 
 // Scattered Instagram-comment screenshots behind the finale credits — add
@@ -45,13 +41,13 @@ export type CommentPhoto = {
 };
 
 export const COMMENT_PHOTOS: CommentPhoto[] = [
-  { src: "/photos/comment-1.jpg", top: "5%", left: "5%", width: "150px", rotate: -8 },
-  { src: "/photos/comment-2.jpg", top: "8%", left: "70%", width: "130px", rotate: 11 },
-  { src: "/photos/comment-3.jpg", top: "34%", left: "2%", width: "170px", rotate: 6 },
-  { src: "/photos/comment-4.jpg", top: "40%", left: "76%", width: "150px", rotate: -12 },
-  { src: "/photos/comment-5.jpg", top: "64%", left: "6%", width: "140px", rotate: 12 },
-  { src: "/photos/comment-6.jpg", top: "68%", left: "68%", width: "160px", rotate: -6 },
-  { src: "/photos/comment-7.jpg", top: "86%", left: "36%", width: "130px", rotate: 5 },
+  { src: "/photos/comment-1.jpg", top: "5%", left: "5%", width: "182px", rotate: -8 },
+  { src: "/photos/comment-2.jpg", top: "8%", left: "70%", width: "202px", rotate: 11 },
+  { src: "/photos/comment-3.jpg", top: "43%", left: "2%", width: "206px", rotate: 6 },
+  { src: "/photos/comment-4.jpg", top: "26%", left: "76%", width: "192px", rotate: -12 },
+  { src: "/photos/comment-5.jpg", top: "53%", left: "6%", width: "174px", rotate: 12 },
+  { src: "/photos/comment-6.jpg", top: "68%", left: "68%", width: "198px", rotate: -6 },
+  { src: "/photos/comment-7.jpg", top: "91%", left: "36%", width: "189px", rotate: 5 },
 ];
 // -------------------------
 
@@ -158,22 +154,33 @@ export const CINEMAS: EntertainOption[] = [
 
 export const RELAX: RelaxOption[] = [
   {
-    id: "general",
-    title: "Общий массаж",
-    emoji: "💆‍♀️",
+    id: "walking",
+    title: "Прогулка вдвоём",
+    emoji: "👫",
+    gradient: "from-green-400 to-teal-500",
+  },
+  {
+    id: "biking",
+    title: "Катание на вело",
+    emoji: "🚲",
     gradient: "from-purple-400 to-indigo-500",
   },
   {
-    id: "foot",
-    title: "Массаж стоп",
-    emoji: "🦶",
+    id: "picnic",
+    title: "Пикник",
+    emoji: "🧺🥪",
     gradient: "from-orange-300 to-rose-400",
   },
   {
-    id: "erotic",
-    title: "Эротический массаж",
-    emoji: "🔥",
+    id: "moto",
+    title: "Катание на мото",
+    emoji: "🏍️",
     gradient: "from-red-500 to-pink-600",
+  }, {
+    id: "shooting",
+    title: "Тир",
+    emoji: "🎯",
+    gradient: "from-yellow-400 to-orange-500",
   },
 ];
 
