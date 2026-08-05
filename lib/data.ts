@@ -167,13 +167,15 @@ export type Selection = {
   // Drawing is always included (already paid & booked). Cinema is an
   // optional add-on alongside it.
   cinema: { optionId: string; time: string } | null;
-  relax: string | null;
+  // Entertainment and relax are one combined, multi-select group — she can
+  // pick as many as she likes.
+  relax: string[];
 };
 
 export const EMPTY_SELECTION: Selection = {
   eat: null,
   cinema: null,
-  relax: null,
+  relax: [],
 };
 
 export function describeSelection(selection: Selection) {
@@ -181,7 +183,9 @@ export function describeSelection(selection: Selection) {
   const cinemaOption = CINEMAS.find(
     (c) => c.id === selection.cinema?.optionId
   );
-  const relax = RELAX.find((r) => r.id === selection.relax);
+  const relaxTitles = RELAX.filter((r) => selection.relax.includes(r.id)).map(
+    (r) => r.title
+  );
 
   const entertain = cinemaOption
     ? `${DRAWING.title} — ${DRAWING.time} + ${cinemaOption.title} — ${selection.cinema?.time}`
@@ -190,6 +194,6 @@ export function describeSelection(selection: Selection) {
   return {
     eat: cuisine?.title ?? null,
     entertain,
-    relax: relax?.title ?? null,
+    relax: relaxTitles.length > 0 ? relaxTitles.join(", ") : null,
   };
 }

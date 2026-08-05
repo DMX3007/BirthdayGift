@@ -17,6 +17,10 @@ const MusicPlayer = dynamic(() => import("@/components/MusicPlayer"), {
   ssr: false,
 });
 
+const ThemeToggle = dynamic(() => import("@/components/ThemeToggle"), {
+  ssr: false,
+});
+
 type Scene = "envelope" | "letter" | "sending" | "sent" | "finale";
 
 export default function Home() {
@@ -48,6 +52,7 @@ export default function Home() {
   return (
     <div className="relative min-h-screen w-full bg-[var(--background)]">
       <FloatingHearts />
+      <ThemeToggle />
       {scene !== "envelope" && <MusicPlayer />}
 
       <AnimatePresence mode="wait">
