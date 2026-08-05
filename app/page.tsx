@@ -13,6 +13,10 @@ const FloatingHearts = dynamic(() => import("@/components/FloatingHearts"), {
   ssr: false,
 });
 
+const MusicPlayer = dynamic(() => import("@/components/MusicPlayer"), {
+  ssr: false,
+});
+
 type Scene = "envelope" | "letter" | "sending" | "sent" | "finale";
 
 export default function Home() {
@@ -44,6 +48,7 @@ export default function Home() {
   return (
     <div className="relative min-h-screen w-full bg-[var(--background)]">
       <FloatingHearts />
+      {scene !== "envelope" && <MusicPlayer />}
 
       <AnimatePresence mode="wait">
         {scene === "envelope" && (
