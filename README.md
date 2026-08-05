@@ -1,10 +1,10 @@
 # 💌 Birthday Invitation
 
 A one-page animated birthday invitation, built with Next.js. She opens a
-sealed letter (hearts + confetti), picks what she wants for her birthday —
-food, entertainment, relaxation — submits her choices, and gets a scrolling
-birthday-wish "movie credits" screen with background music. Her choices get
-sent straight to a Telegram chat.
+sealed letter (hearts + confetti) to the sound of her favorite music, picks
+what she wants for her birthday — food, entertainment, relaxation — submits
+her choices, and gets a scrolling birthday-wish "movie credits" screen. Her
+choices get sent straight to a Telegram chat.
 
 ## Flow
 
@@ -19,7 +19,12 @@ sent straight to a Telegram chat.
    confirmation that her choices were received and you'll take it from
    there.
 4. **Finale** — her birthday wish scrolls like movie credits over a black
-   screen with background music.
+   screen.
+
+As soon as she opens the letter, a small music player appears (top-right)
+and starts playing a random pick from her 4 favorite tracks. She can
+play/pause and skip forward/back between them at any point, and it keeps
+playing across every screen.
 
 All copy, categories, options, times, and the birthday wish text live in
 [`lib/data.ts`](./lib/data.ts) — edit that file to personalize everything
@@ -30,19 +35,29 @@ All copy, categories, options, times, and the birthday wish text live in
 Open `lib/data.ts`:
 
 - `HER_NAME`, `SIGN_OFF`, `BIRTHDAY_WISH` — the personal touches.
-- `CUISINES`, `ENTERTAINMENT`, `RELAX` — categories/options and cinema
+- `CUISINES`, `CINEMAS`, `DRAWING`, `RELAX` — categories/options and cinema
   showtimes.
+- `TRACKS` — her 4 favorite songs (see below).
 
 Options currently use emoji + color gradients instead of photos (no real
 images were available to bundle). If you'd rather use real photos, drop
 images into `public/` and swap the emoji in `OptionCard` for an
 `next/image`.
 
-### Add background music (optional)
+### Add her music (required for the player to actually play something)
 
-Drop an audio file at `public/music.mp3` (any royalty-free or personal
-track). The finale screen will autoplay it; if the file is missing the
-player just quietly hides the music toggle — nothing breaks.
+Drop 4 audio files at:
+
+```
+public/audio/track-1.mp3
+public/audio/track-2.mp3
+public/audio/track-3.mp3
+public/audio/track-4.mp3
+```
+
+Then rename the `title` for each entry in the `TRACKS` array in
+`lib/data.ts` to match. If a file is missing, the player just skips to the
+next track instead of breaking — so it's safe to add them one at a time.
 
 ## 2. Get her choices on your phone (Telegram)
 

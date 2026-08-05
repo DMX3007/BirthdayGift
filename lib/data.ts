@@ -17,6 +17,20 @@ export const BIRTHDAY_WISH = `С днём рождения, ${HER_NAME}! 🎂
 С днём рождения, моя единственная. 💖
 
 — ${SIGN_OFF}`;
+// Her 4 favorite tracks — add the actual files at public/audio/track-N.mp3
+// and rename the titles below.
+export type Track = {
+  id: string;
+  title: string;
+  src: string;
+};
+
+export const TRACKS: Track[] = [
+  { id: "track-1", title: "Трек 1", src: "/audio/track-1.mp3" },
+  { id: "track-2", title: "Трек 2", src: "/audio/track-2.mp3" },
+  { id: "track-3", title: "Трек 3", src: "/audio/track-3.mp3" },
+  { id: "track-4", title: "Трек 4", src: "/audio/track-4.mp3" },
+];
 // -------------------------
 
 export type CuisineOption = {
