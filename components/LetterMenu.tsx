@@ -5,7 +5,8 @@ import { useState } from "react";
 import OptionCard from "./OptionCard";
 import {
   CUISINES,
-  ENTERTAINMENT,
+  CINEMAS,
+  DRAWING,
   RELAX,
   Selection,
   HER_NAME,
@@ -20,13 +21,11 @@ export default function LetterMenu({
   onChange: (s: Selection) => void;
   onSubmit: () => void;
 }) {
-  const [activeEntertainId, setActiveEntertainId] = useState<string | null>(
-    selection.entertain?.optionId ?? null
+  const [activeCinemaId, setActiveCinemaId] = useState<string | null>(
+    selection.cinema?.optionId ?? null
   );
 
-  const complete = Boolean(
-    selection.eat && selection.entertain && selection.relax
-  );
+  const complete = Boolean(selection.eat && selection.relax);
 
   return (
     <motion.div
@@ -41,7 +40,7 @@ export default function LetterMenu({
         </p>
         <p className="text-center text-sm sm:text-base text-rose-900/70 leading-relaxed mb-8">
           выбери, чего хочется на день рождения — а обо всём остальном
-          позабочусь я. Можно выбрать по одному варианту в каждом разделе.
+          позабочусь я.
         </p>
 
         {/* EAT */}
@@ -62,24 +61,34 @@ export default function LetterMenu({
 
         {/* ENTERTAIN */}
         <Section title="Чем развлечёмся?" icon="🎈">
+          <p className="text-xs text-rose-400 mb-3">
+            Рисование уже забронировано и оплачено — а кино можно добавить
+            по желанию.
+          </p>
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
-            {ENTERTAINMENT.map((e) => (
+            <OptionCard
+              emoji={DRAWING.emoji}
+              title={DRAWING.title}
+              subtitle={DRAWING.subtitle}
+              gradient={DRAWING.gradient}
+              selected
+              locked
+            />
+            {CINEMAS.map((c) => (
               <OptionCard
-                key={e.id}
-                emoji={e.emoji}
-                title={e.title}
-                subtitle={e.subtitle}
-                gradient={e.gradient}
-                selected={selection.entertain?.optionId === e.id}
+                key={c.id}
+                emoji={c.emoji}
+                title={c.title}
+                subtitle={c.subtitle}
+                gradient={c.gradient}
+                selected={selection.cinema?.optionId === c.id}
                 onClick={() => {
-                  setActiveEntertainId(e.id);
-                  if (e.times.length === 1) {
-                    onChange({
-                      ...selection,
-                      entertain: { optionId: e.id, time: e.times[0] },
-                    });
+                  if (selection.cinema?.optionId === c.id) {
+                    setActiveCinemaId(null);
+                    onChange({ ...selection, cinema: null });
                   } else {
-                    onChange({ ...selection, entertain: null });
+                    setActiveCinemaId(c.id);
+                    onChange({ ...selection, cinema: null });
                   }
                 }}
               />
@@ -87,12 +96,10 @@ export default function LetterMenu({
           </div>
 
           <AnimatePresence>
-            {activeEntertainId &&
+            {activeCinemaId &&
               (() => {
-                const opt = ENTERTAINMENT.find(
-                  (e) => e.id === activeEntertainId
-                );
-                if (!opt || opt.times.length <= 1) return null;
+                const opt = CINEMAS.find((c) => c.id === activeCinemaId);
+                if (!opt) return null;
                 return (
                   <motion.div
                     initial={{ opacity: 0, height: 0 }}
@@ -111,12 +118,12 @@ export default function LetterMenu({
                           onClick={() =>
                             onChange({
                               ...selection,
-                              entertain: { optionId: opt.id, time: t },
+                              cinema: { optionId: opt.id, time: t },
                             })
                           }
                           className={`rounded-full px-4 py-1.5 text-sm font-medium border transition-colors ${
-                            selection.entertain?.optionId === opt.id &&
-                            selection.entertain?.time === t
+                            selection.cinema?.optionId === opt.id &&
+                            selection.cinema?.time === t
                               ? "bg-rose-500 text-white border-rose-500"
                               : "bg-white text-rose-500 border-rose-300 hover:bg-rose-50"
                           }`}

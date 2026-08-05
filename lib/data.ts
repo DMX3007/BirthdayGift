@@ -35,6 +35,15 @@ export type EntertainOption = {
   times: string[];
 };
 
+export type DrawingBooking = {
+  id: string;
+  title: string;
+  subtitle: string;
+  emoji: string;
+  gradient: string;
+  time: string;
+};
+
 export type RelaxOption = {
   id: string;
   title: string;
@@ -81,7 +90,18 @@ export const CUISINES: CuisineOption[] = [
   },
 ];
 
-export const ENTERTAINMENT: EntertainOption[] = [
+// Already paid & booked — always included, not optional.
+export const DRAWING: DrawingBooking = {
+  id: "drawing",
+  title: "Рисование",
+  subtitle: "Уже забронировано — 18:00",
+  emoji: "🎨",
+  gradient: "from-teal-400 to-emerald-500",
+  time: "18:00",
+};
+
+// Optional add-on: pick a cinema showtime alongside the drawing class.
+export const CINEMAS: EntertainOption[] = [
   {
     id: "cinema-luch",
     title: "Кино «Луч»",
@@ -97,14 +117,6 @@ export const ENTERTAINMENT: EntertainOption[] = [
     emoji: "🍿",
     gradient: "from-fuchsia-400 to-rose-500",
     times: ["12:30", "16:00", "19:30", "23:00"],
-  },
-  {
-    id: "drawing",
-    title: "Рисование",
-    subtitle: "Мастер-класс в 18:00",
-    emoji: "🎨",
-    gradient: "from-teal-400 to-emerald-500",
-    times: ["18:00"],
   },
 ];
 
@@ -131,28 +143,32 @@ export const RELAX: RelaxOption[] = [
 
 export type Selection = {
   eat: string | null;
-  entertain: { optionId: string; time: string } | null;
+  // Drawing is always included (already paid & booked). Cinema is an
+  // optional add-on alongside it.
+  cinema: { optionId: string; time: string } | null;
   relax: string | null;
 };
 
 export const EMPTY_SELECTION: Selection = {
   eat: null,
-  entertain: null,
+  cinema: null,
   relax: null,
 };
 
 export function describeSelection(selection: Selection) {
   const cuisine = CUISINES.find((c) => c.id === selection.eat);
-  const entertainOption = ENTERTAINMENT.find(
-    (e) => e.id === selection.entertain?.optionId
+  const cinemaOption = CINEMAS.find(
+    (c) => c.id === selection.cinema?.optionId
   );
   const relax = RELAX.find((r) => r.id === selection.relax);
 
+  const entertain = cinemaOption
+    ? `${DRAWING.title} — ${DRAWING.time} + ${cinemaOption.title} — ${selection.cinema?.time}`
+    : `${DRAWING.title} — ${DRAWING.time}`;
+
   return {
     eat: cuisine?.title ?? null,
-    entertain: entertainOption
-      ? `${entertainOption.title} — ${selection.entertain?.time}`
-      : null,
+    entertain,
     relax: relax?.title ?? null,
   };
 }
