@@ -28,6 +28,25 @@ body {
 
 .font-script {
   font-family: var(--font-caveat), cursive;
+  letter-spacing: 0.015em;
+  text-shadow: 0 2px 14px rgba(244, 63, 94, 0.22);
+}
+
+.dark .font-script {
+  text-shadow: 0 2px 16px rgba(251, 113, 133, 0.35);
+}
+
+.btn-love {
+  background-image: linear-gradient(135deg, #fb7185, #ec4899);
+  box-shadow: 0 10px 25px -8px rgba(236, 72, 153, 0.55);
+  transition: transform 0.25s ease, box-shadow 0.25s ease,
+    background-image 0.25s ease;
+}
+
+.btn-love:hover {
+  background-image: linear-gradient(135deg, #f43f5e, #db2777);
+  box-shadow: 0 14px 30px -8px rgba(236, 72, 153, 0.65);
+  transform: translateY(-2px);
 }
 
 @keyframes drift-up {

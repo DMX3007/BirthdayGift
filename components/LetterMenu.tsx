@@ -162,10 +162,11 @@ export default function LetterMenu({
           disabled={!complete}
           onClick={onSubmit}
           whileTap={complete ? { scale: 0.96 } : undefined}
-          className={`w-full max-w-md rounded-full py-4 text-base font-semibold shadow-xl transition-all ${complete
-            ? "bg-rose-500 text-white hover:bg-rose-600 soft-pulse"
-            : "bg-rose-100 text-rose-300 dark:bg-rose-950/60 dark:text-rose-400/50 cursor-not-allowed"
-            }`}
+          className={`w-full max-w-md rounded-full py-4 text-base font-semibold transition-all ${
+            complete
+              ? "btn-love text-white soft-pulse"
+              : "bg-rose-100 text-rose-300 dark:bg-rose-950/60 dark:text-rose-400/50 cursor-not-allowed"
+          }`}
         >
           {complete
             ? "Отправить мой выбор 💌"
