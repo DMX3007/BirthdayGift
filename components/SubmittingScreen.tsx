@@ -5,9 +5,11 @@ import { motion } from "framer-motion";
 export default function SubmittingScreen({
   status,
   onContinue,
+  isUpdate,
 }: {
   status: "sending" | "sent";
   onContinue: () => void;
+  isUpdate: boolean;
 }) {
   return (
     <div className="relative z-10 flex min-h-screen flex-col items-center justify-center px-6 text-center">
@@ -26,7 +28,7 @@ export default function SubmittingScreen({
             💌
           </motion.span>
           <p className="font-script text-2xl sm:text-3xl text-rose-600 dark:text-rose-300">
-            Отправляю твой выбор...
+            {isUpdate ? "Обновляю твой выбор..." : "Отправляю твой выбор..."}
           </p>
         </motion.div>
       ) : (
@@ -49,7 +51,9 @@ export default function SubmittingScreen({
             Готово!
           </p>
           <p className="text-rose-900/70 dark:text-rose-200/70 leading-relaxed">
-            Твой выбор уже у меня. Дальше я сам обо всём позабочусь —
+            {isUpdate
+              ? "Обновлённый выбор уже у меня. Учту всё, что поменялось — "
+              : "Твой выбор уже у меня. Дальше я сам обо всём позабочусь — "}
             тебе остаётся только ждать и наслаждаться днём рождения. 💖
           </p>
           <motion.button

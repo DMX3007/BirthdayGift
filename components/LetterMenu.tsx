@@ -16,10 +16,12 @@ export default function LetterMenu({
   selection,
   onChange,
   onSubmit,
+  isUpdate,
 }: {
   selection: Selection;
   onChange: (s: Selection) => void;
   onSubmit: () => void;
+  isUpdate: boolean;
 }) {
   const [activeCinemaId, setActiveCinemaId] = useState<string | null>(
     selection.cinema?.optionId ?? null
@@ -186,7 +188,9 @@ export default function LetterMenu({
           }`}
         >
           {complete
-            ? "Отправить мой выбор 💌"
+            ? isUpdate
+              ? "Обновить мой выбор 💌"
+              : "Отправить мой выбор 💌"
             : "Выбери, что будем есть"}
         </motion.button>
       </div>
