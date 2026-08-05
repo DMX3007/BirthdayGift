@@ -1,11 +1,10 @@
 // ---- Personalize me ----
-export const HER_NAME = "любимая";
-export const SIGN_OFF = "твой котик";
+export const HER_NAME = "Окси";
+export const SIGN_OFF = "Ромаш";
 export const BIRTHDAY_WISH = `С днём рождения, ${HER_NAME}! 🎂
 
-Каждый год рядом с тобой — подарок сам по себе,
-а сегодня я хочу подарить тебе целый день,
-собранный только из того, что любишь ты.
+Время рядом с тобой — подарок сам по себе,
+Я хочу чтобы ты собрала свой праздничный пазл из того, что любишь ты.
 
 Пусть сегодня будет вкусно, весело и невероятно нежно.
 Выбери всё, что хочется — а обо всём остальном
@@ -122,22 +121,33 @@ export const CINEMAS: EntertainOption[] = [
 
 export const RELAX: RelaxOption[] = [
   {
-    id: "general",
-    title: "Общий массаж",
-    emoji: "💆‍♀️",
+    id: "walking",
+    title: "Прогулка вдвоём",
+    emoji: "👫",
+    gradient: "from-green-400 to-teal-500",
+  },
+  {
+    id: "biking",
+    title: "Катание на вело",
+    emoji: "🚲",
     gradient: "from-purple-400 to-indigo-500",
   },
   {
-    id: "foot",
-    title: "Массаж стоп",
-    emoji: "🦶",
+    id: "picnic",
+    title: "Пикник",
+    emoji: "🧺🥪",
     gradient: "from-orange-300 to-rose-400",
   },
   {
-    id: "erotic",
-    title: "Эротический массаж",
-    emoji: "🔥",
+    id: "moto",
+    title: "Катание на мото",
+    emoji: "🏍️",
     gradient: "from-red-500 to-pink-600",
+  }, {
+    id: "shooting",
+    title: "Тир",
+    emoji: "🎯",
+    gradient: "from-yellow-400 to-orange-500",
   },
 ];
 
