@@ -24,7 +24,7 @@ export default function Envelope({ onOpened }: { onOpened: () => void }) {
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.3, duration: 0.6 }}
-        className="font-script text-2xl sm:text-3xl text-rose-600 mb-10 sm:mb-12"
+        className="font-script text-2xl sm:text-3xl text-rose-600 dark:text-rose-300 mb-10 sm:mb-12"
       >
         Для тебя, {HER_NAME} 💌
       </motion.p>
@@ -114,7 +114,7 @@ export default function Envelope({ onOpened }: { onOpened: () => void }) {
         initial={{ opacity: 0 }}
         animate={{ opacity: opening ? 0 : 1 }}
         transition={{ delay: 1, duration: 0.6 }}
-        className="mt-8 text-sm text-rose-400 tracking-wide"
+        className="mt-8 text-sm text-rose-400 dark:text-rose-300/70 tracking-wide"
       >
         нажми, чтобы открыть
       </motion.p>
