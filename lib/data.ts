@@ -31,6 +31,28 @@ export const TRACKS: Track[] = [
   { id: "track-3", title: "Трек 3", src: "/audio/track-3.mp3" },
   { id: "track-4", title: "Трек 4", src: "/audio/track-4.mp3" },
 ];
+
+// Scattered Instagram-comment screenshots behind the finale credits — add
+// the actual files at public/photos/comment-N.jpg. Position/size/rotation
+// are hand-placed (not random) so they read as a deliberate collage;
+// tweak freely, and add/remove entries to match how many photos you have.
+export type CommentPhoto = {
+  src: string;
+  top: string;
+  left: string;
+  width: string;
+  rotate: number;
+};
+
+export const COMMENT_PHOTOS: CommentPhoto[] = [
+  { src: "/photos/comment-1.jpg", top: "5%", left: "5%", width: "150px", rotate: -8 },
+  { src: "/photos/comment-2.jpg", top: "8%", left: "70%", width: "130px", rotate: 11 },
+  { src: "/photos/comment-3.jpg", top: "34%", left: "2%", width: "170px", rotate: 6 },
+  { src: "/photos/comment-4.jpg", top: "40%", left: "76%", width: "150px", rotate: -12 },
+  { src: "/photos/comment-5.jpg", top: "64%", left: "6%", width: "140px", rotate: 12 },
+  { src: "/photos/comment-6.jpg", top: "68%", left: "68%", width: "160px", rotate: -6 },
+  { src: "/photos/comment-7.jpg", top: "86%", left: "36%", width: "130px", rotate: 5 },
+];
 // -------------------------
 
 export type CuisineOption = {

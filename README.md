@@ -10,21 +10,25 @@ choices get sent straight to a Telegram chat.
 
 1. **Envelope** — closed letter with a wax seal. Tapping it bursts hearts
    and confetti and opens the letter.
-2. **Letter / menu** — three categories, pick one option in each:
-   - **Eat**: Georgian, Italian, Russian, Eastern, Asian, Seafood cuisine
-   - **Entertain**: Cinema "Луч" (showtimes), Cinema "Эпицентр" (showtimes),
-     or a drawing class at 18:00
-   - **Relax**: general massage, foot massage, erotic massage
+2. **Letter / menu**:
+   - **Eat**: pick one cuisine — Georgian, Italian, Russian, Eastern, Asian,
+     Seafood
+   - **Развлечения и отдых**: drawing is already booked and paid for (shown
+     locked, always included); she can additionally pick a cinema showtime
+     ("Луч" / "Эпицентр") and any number of massage options — general, foot,
+     erotic — all freely combinable, not one-per-category
 3. **Sending / confirmation** — a short "sending" animation, then a warm
    confirmation that her choices were received and you'll take it from
    there.
 4. **Finale** — her birthday wish scrolls like movie credits over a black
-   screen.
+   screen, with screenshots of her favorite Instagram comments scattered
+   and rotated behind the text.
 
-As soon as she opens the letter, a small music player appears (top-right)
-and starts playing a random pick from her 4 favorite tracks. She can
+As soon as she opens the letter, a music player appears (centered at the
+top) and starts playing a random pick from her 4 favorite tracks. She can
 play/pause and skip forward/back between them at any point, and it keeps
-playing across every screen.
+playing across every screen. A dark-mode toggle (top-left) is available
+from the very first screen.
 
 All copy, categories, options, times, and the birthday wish text live in
 [`lib/data.ts`](./lib/data.ts) — edit that file to personalize everything
@@ -38,6 +42,7 @@ Open `lib/data.ts`:
 - `CUISINES`, `CINEMAS`, `DRAWING`, `RELAX` — categories/options and cinema
   showtimes.
 - `TRACKS` — her 4 favorite songs (see below).
+- `COMMENT_PHOTOS` — the finale's scattered background photos (see below).
 
 Options currently use emoji + color gradients instead of photos (no real
 images were available to bundle). If you'd rather use real photos, drop
@@ -58,6 +63,24 @@ public/audio/track-4.mp3
 Then rename the `title` for each entry in the `TRACKS` array in
 `lib/data.ts` to match. If a file is missing, the player just skips to the
 next track instead of breaking — so it's safe to add them one at a time.
+
+### Add the finale's background photos (optional)
+
+Screenshots of nice Instagram comments, scattered and rotated behind the
+credits on the finale screen. Drop up to 7 images at:
+
+```
+public/photos/comment-1.jpg
+public/photos/comment-2.jpg
+...
+public/photos/comment-7.jpg
+```
+
+Each has its own hand-placed position/size/rotation in the
+`COMMENT_PHOTOS` array in `lib/data.ts` — add, remove, or tweak entries to
+match how many photos you have (any image size/aspect ratio works; only
+the `width` is fixed, height follows automatically). Missing files are
+simply skipped, same as the tracks.
 
 ## 2. Get her choices on your phone (Telegram)
 
