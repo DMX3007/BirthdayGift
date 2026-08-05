@@ -22,10 +22,10 @@ export type Track = {
 };
 
 export const TRACKS: Track[] = [
-  { id: "track-1", title: "Трек 1", src: "/audio/track-1.mp3" },
-  { id: "track-2", title: "Трек 2", src: "/audio/track-2.mp3" },
-  { id: "track-3", title: "Трек 3", src: "/audio/track-3.mp3" },
-  { id: "track-4", title: "Трек 4", src: "/audio/track-4.mp3" },
+  { id: "track-1", title: "Под испанским небом", src: "/audio/track-1.mp3" },
+  { id: "track-2", title: "Слёзы", src: "/audio/track-2.mp3" },
+  { id: "track-3", title: "Просто такая сильная любовь", src: "/audio/track-3.mp3" },
+  { id: "track-4", title: "Осень", src: "/audio/track-4.mp3" },
 ];
 // -------------------------
 
