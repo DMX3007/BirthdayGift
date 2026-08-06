@@ -1,7 +1,7 @@
 import confetti from "canvas-confetti";
 
 export function burstConfetti() {
-  const heart = confetti.shapeFromText({ text: "❤️", scalar: 3 });
+  const heart = confetti.shapeFromText({ text: "🐋", scalar: 3 });
   const sparkle = confetti.shapeFromText({ text: "✨", scalar: 3 });
 
   const duration = 1400;
