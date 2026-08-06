@@ -10,7 +10,7 @@ export const BIRTHDAY_WISH = `С днём рождения, ${HER_NAME}! 🎂
 Выбери всё, что хочется — а обо всём остальном
 позабочусь я.
 
-С днём рождения, моя единственная. 💖
+С днём рождения. 💖
 
 — ${SIGN_OFF}`;
 // Her 4 favorite tracks — add the actual files at public/audio/track-N.mp3
