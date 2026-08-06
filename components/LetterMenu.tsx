@@ -85,10 +85,7 @@ export default function LetterMenu({
 
         {/* ENTERTAINMENT + RELAX, combined — pick as many as you like */}
         <Section title="Развлечения и отдых" icon="🎉">
-          <p className="font-script text-lg text-rose-400 dark:text-rose-300/70 mb-3">
-            Рисование уже забронировано — а всё остальное можно
-            выбрать в любом количестве, что захочется.
-          </p>
+
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
             <OptionCard
               emoji={DRAWING.emoji}
