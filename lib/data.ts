@@ -120,6 +120,12 @@ export const CUISINES: CuisineOption[] = [
     emoji: "🦞",
     gradient: "from-cyan-400 to-blue-500",
   },
+  {
+    id: "american",
+    title: "Американская кухня",
+    emoji: "🍔",
+    gradient: "from-red-400 to-blue-500",
+  },
 ];
 
 // Already paid & booked — always included, not optional.
@@ -151,12 +157,20 @@ export const CINEMAS: EntertainOption[] = [
     times: ["12:30", "16:00", "19:30", "23:00"],
   },
   {
-    id: "cinema-3rd",
-    title: "Кино «Синема Парк»",
+    id: "mori-cinema",
+    title: "Мори синема",
     subtitle: "Выбери сеанс",
     emoji: "🎥",
     gradient: "from-orange-400 to-violet-500",
-    times: ["12:15", "15:30", "18:45", "22:00"],
+    times: ["11:30", "12:30", "14:45", "15:45", "18:00", "19:00", "21:15", "22:15"],
+  },
+  {
+    id: "star-max",
+    title: "Кино «Стармакс»",
+    subtitle: "Выбери сеанс",
+    emoji: "🎭",
+    gradient: "from-green-400 to-violet-500",
+    times: ["10:40", "13:55", "17:10", "20:25"],
   },
 ];
 
