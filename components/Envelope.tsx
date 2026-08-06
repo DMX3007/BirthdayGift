@@ -69,31 +69,35 @@ export default function Envelope({ onOpened }: { onOpened: () => void }) {
             )}
           </AnimatePresence>
 
-          {/* flap shell — clipped to the envelope's rounded corners so the
-              sharp triangle points of the flaps below never poke past the
-              rounded body edges. `perspective` gives the flip a real
-              3D fold instead of a flat vertical squash. */}
-          <div
-            className="absolute inset-0 overflow-hidden rounded-xl"
-            style={{ perspective: 700 }}
-          >
-            {/* bottom flap */}
-            <div
-              className="absolute inset-x-0 bottom-0 h-full"
+          {/* flap shell — `perspective` gives the flip real 3D depth.
+              Note: no overflow-hidden here — combined with perspective on
+              a rotateX'd 3D child, Chromium clips it almost immediately
+              into the rotation, well before it should visually vanish.
+              The flap corners are chamfered in their own clip-path below
+              instead, so they never poke past the body's rounded-xl. */}
+          <div className="absolute inset-0" style={{ perspective: 700 }}>
+            {/* bottom flap, folds open downward like real paper */}
+            <motion.div
+              animate={{ rotateX: opening ? -150 : 0 }}
+              transition={{ duration: 0.65, ease: [0.34, 1.56, 0.64, 1] }}
               style={{
-                clipPath: "polygon(0 100%, 50% 40%, 100% 100%)",
+                transformOrigin: "bottom center",
+                transformStyle: "preserve-3d",
+                clipPath:
+                  "polygon(50% 40%, 96% 96%, 92% 100%, 8% 100%, 4% 96%)",
                 background: "linear-gradient(135deg, #fbcfe8, #f9a8d4)",
               }}
+              className="absolute inset-x-0 bottom-0 h-full"
             />
 
-            {/* top flap (the seal side), folds open like real paper */}
+            {/* top flap (the seal side), folds open upward like real paper */}
             <motion.div
               animate={{ rotateX: opening ? 150 : 0 }}
               transition={{ duration: 0.65, ease: [0.34, 1.56, 0.64, 1] }}
               style={{
                 transformOrigin: "top center",
                 transformStyle: "preserve-3d",
-                clipPath: "polygon(0 0, 50% 62%, 100% 0)",
+                clipPath: "polygon(50% 62%, 96% 4%, 92% 0%, 8% 0%, 4% 4%)",
                 background: "linear-gradient(135deg, #fda4af, #fb7185)",
               }}
               className="absolute inset-x-0 top-0 h-full z-10"
