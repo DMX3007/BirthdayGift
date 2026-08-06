@@ -4,6 +4,7 @@ type SubmitBody = {
   eat: string | null;
   entertain: string | null;
   relax: string | null;
+  isUpdate?: boolean;
 };
 
 export async function POST(request: NextRequest) {
@@ -15,7 +16,9 @@ export async function POST(request: NextRequest) {
   }
 
   const lines = [
-    "🎉 Она выбрала свой идеальный день рождения!",
+    body.isUpdate
+      ? "✏️ Она обновила свой выбор на день рождения!"
+      : "🎉 Она выбрала свой идеальный день рождения!",
     "",
     `🍽 Еда: ${body.eat ?? "—"}`,
     `🎈 Развлечение: ${body.entertain ?? "—"}`,

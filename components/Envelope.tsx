@@ -53,7 +53,8 @@ export default function Envelope({ onOpened }: { onOpened: () => void }) {
           {/* envelope body */}
           <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-rose-100 to-pink-200 shadow-2xl border border-rose-200" />
 
-          {/* letter peeking out */}
+          {/* letter peeking out — kept outside the clipped shell below so it
+              can rise freely above the envelope instead of being cut off */}
           <AnimatePresence>
             {opening && (
               <motion.div
@@ -68,28 +69,36 @@ export default function Envelope({ onOpened }: { onOpened: () => void }) {
             )}
           </AnimatePresence>
 
-          {/* bottom flap */}
+          {/* flap shell — clipped to the envelope's rounded corners so the
+              sharp triangle points of the flaps below never poke past the
+              rounded body edges. `perspective` gives the flip a real
+              3D fold instead of a flat vertical squash. */}
           <div
-            className="absolute inset-x-0 bottom-0 h-full"
-            style={{
-              clipPath: "polygon(0 100%, 50% 40%, 100% 100%)",
-              background:
-                "linear-gradient(135deg, #fbcfe8, #f9a8d4)",
-            }}
-          />
+            className="absolute inset-0 overflow-hidden rounded-xl"
+            style={{ perspective: 700 }}
+          >
+            {/* bottom flap */}
+            <div
+              className="absolute inset-x-0 bottom-0 h-full"
+              style={{
+                clipPath: "polygon(0 100%, 50% 40%, 100% 100%)",
+                background: "linear-gradient(135deg, #fbcfe8, #f9a8d4)",
+              }}
+            />
 
-          {/* top flap (the seal side), flips open */}
-          <motion.div
-            animate={{ rotateX: opening ? 130 : 0 }}
-            transition={{ duration: 0.6, ease: "easeInOut" }}
-            style={{
-              transformOrigin: "top center",
-              transformStyle: "preserve-3d",
-              clipPath: "polygon(0 0, 50% 62%, 100% 0)",
-              background: "linear-gradient(135deg, #fda4af, #fb7185)",
-            }}
-            className="absolute inset-x-0 top-0 h-full z-10"
-          />
+            {/* top flap (the seal side), folds open like real paper */}
+            <motion.div
+              animate={{ rotateX: opening ? 150 : 0 }}
+              transition={{ duration: 0.65, ease: [0.34, 1.56, 0.64, 1] }}
+              style={{
+                transformOrigin: "top center",
+                transformStyle: "preserve-3d",
+                clipPath: "polygon(0 0, 50% 62%, 100% 0)",
+                background: "linear-gradient(135deg, #fda4af, #fb7185)",
+              }}
+              className="absolute inset-x-0 top-0 h-full z-10"
+            />
+          </div>
 
           {/* wax seal */}
           <motion.div
