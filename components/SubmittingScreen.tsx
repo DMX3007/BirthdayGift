@@ -50,7 +50,7 @@ export default function SubmittingScreen({
           <p className="font-script text-3xl sm:text-4xl text-rose-600 dark:text-rose-300">
             Готово!
           </p>
-          <p className="text-rose-900/70 dark:text-rose-200/70 leading-relaxed">
+          <p className="font-script text-lg text-rose-900/70 dark:text-rose-200/70 leading-relaxed">
             {isUpdate
               ? "Обновлённый выбор уже у меня. Учту всё, что поменялось — "
               : "Твой выбор уже у меня. Дальше я сам обо всём позабочусь — "}
