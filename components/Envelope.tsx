@@ -123,7 +123,7 @@ export default function Envelope({ onOpened }: { onOpened: () => void }) {
         initial={{ opacity: 0 }}
         animate={{ opacity: opening ? 0 : 1 }}
         transition={{ delay: 1, duration: 0.6 }}
-        className="mt-8 text-sm text-rose-400 dark:text-rose-300/70 tracking-wide"
+        className="font-script mt-8 text-lg text-rose-400 dark:text-rose-300/70 tracking-wide"
       >
         нажми, чтобы открыть
       </motion.p>

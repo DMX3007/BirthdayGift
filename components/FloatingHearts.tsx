@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-const HEART_EMOJIS = ["💕", "💖", "💗", "💓", "❤️"];
+const HEART_EMOJIS = ["💕", "💖", "🐋", "🐋", "❤️"];
 
 type Heart = {
   id: number;

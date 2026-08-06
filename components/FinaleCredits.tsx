@@ -29,9 +29,9 @@ export default function FinaleCredits({ onReplay }: { onReplay: () => void }) {
         type="button"
         onClick={onReplay}
         whileTap={{ scale: 0.95 }}
-        className="btn-love relative z-10 mt-6 rounded-full px-6 py-2.5 text-sm font-semibold text-white"
+        className="font-script btn-love relative z-10 mt-6 rounded-full px-6 py-2.5 text-sm font-semibold text-white"
       >
-        Посмотреть письмо ещё раз ↺
+        Посмотреть письмо ещё раз ❤️
       </motion.button>
     </div>
   );

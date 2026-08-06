@@ -60,7 +60,7 @@ export default function SubmittingScreen({
             type="button"
             onClick={onContinue}
             whileTap={{ scale: 0.95 }}
-            className="btn-love mt-4 rounded-full px-8 py-3 text-white font-semibold soft-pulse"
+            className="font-script btn-love mt-4 rounded-full px-8 py-3 text-white font-semibold soft-pulse"
           >
             Открыть моё пожелание →
           </motion.button>
