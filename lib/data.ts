@@ -131,7 +131,7 @@ export const CUISINES: CuisineOption[] = [
 // Already paid & booked — always included, not optional.
 export const DRAWING: DrawingBooking = {
   id: "drawing",
-  title: "Рисование",
+  title: "Искусство",
   subtitle: "Уже забронировано — 18:00",
   emoji: "🎨",
   gradient: "from-teal-400 to-emerald-500",
