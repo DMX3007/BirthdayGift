@@ -150,6 +150,14 @@ export const CINEMAS: EntertainOption[] = [
     gradient: "from-fuchsia-400 to-rose-500",
     times: ["12:30", "16:00", "19:30", "23:00"],
   },
+  {
+    id: "cinema-3rd",
+    title: "Кино «Синема Парк»",
+    subtitle: "Выбери сеанс",
+    emoji: "🎥",
+    gradient: "from-orange-400 to-violet-500",
+    times: ["12:15", "15:30", "18:45", "22:00"],
+  },
 ];
 
 export const RELAX: RelaxOption[] = [
