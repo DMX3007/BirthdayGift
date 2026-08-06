@@ -60,7 +60,7 @@ export default function LetterMenu({
         <p className="font-script text-3xl sm:text-4xl text-rose-600 dark:text-rose-300 text-center mb-1">
           Милая {HER_NAME},
         </p>
-        <p className="text-center text-sm sm:text-base text-rose-900/70 dark:text-rose-200/70 leading-relaxed mb-8">
+        <p className="font-script text-center text-lg sm:text-lg text-rose-900/70 dark:text-rose-200/70 leading-relaxed mb-8">
           выбери, чего хочется на день рождения — а обо всём остальном
           позабочусь я.
         </p>
@@ -83,7 +83,7 @@ export default function LetterMenu({
 
         {/* ENTERTAINMENT + RELAX, combined — pick as many as you like */}
         <Section title="Развлечения и отдых" icon="🎉">
-          <p className="text-xs text-rose-400 dark:text-rose-300/70 mb-3">
+          <p className="font-script text-lg text-rose-400 dark:text-rose-300/70 mb-3">
             Рисование уже забронировано — а всё остальное можно
             выбрать в любом количестве, что захочется.
           </p>
@@ -178,7 +178,7 @@ export default function LetterMenu({
           disabled={!complete}
           onClick={onSubmit}
           whileTap={complete ? { scale: 0.96 } : undefined}
-          className={`w-full max-w-md rounded-full py-4 text-base font-semibold transition-all ${complete
+          className={`w-full max-w-md rounded-full py-4 text-lg font-script font-semibold transition-all ${complete
             ? "btn-love text-white soft-pulse"
             : "bg-rose-100 text-rose-300 dark:bg-rose-950/60 dark:text-rose-400/50 cursor-not-allowed"
             }`}
@@ -203,7 +203,7 @@ function Section({
 }) {
   return (
     <div className="mb-8 last:mb-0">
-      <h2 className="flex items-center gap-2 text-lg sm:text-xl font-semibold text-rose-700 dark:text-rose-200 mb-3">
+      <h2 className="font-script flex items-center gap-2 text-lg sm:text-xl font-semibold text-rose-700 dark:text-rose-200 mb-3">
         <span aria-hidden>{icon}</span>
         {title}
       </h2>

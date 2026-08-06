@@ -48,7 +48,7 @@ export default function SubmittingScreen({
           <p className="font-script text-3xl sm:text-4xl text-rose-600 dark:text-rose-300">
             Готово!
           </p>
-          <p className="text-rose-900/70 dark:text-rose-200/70 leading-relaxed">
+          <p className="font-script text-rose-900/70 dark:text-rose-200/70 leading-relaxed">
             Твой выбор уже у меня. Дальше я сам обо всём позабочусь —
             тебе остаётся только ждать и наслаждаться днём рождения. 💖
           </p>
@@ -56,7 +56,7 @@ export default function SubmittingScreen({
             type="button"
             onClick={onContinue}
             whileTap={{ scale: 0.95 }}
-            className="btn-love mt-4 rounded-full px-8 py-3 text-white font-semibold soft-pulse"
+            className="font-script btn-love mt-4 rounded-full px-8 py-3 text-white font-semibold soft-pulse"
           >
             Открыть моё пожелание →
           </motion.button>
